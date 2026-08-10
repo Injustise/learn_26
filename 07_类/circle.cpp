@@ -1,4 +1,4 @@
-#include "circle.h"
+#include "circle.h" //Ô²µÄ¶¨Òå
 
 
         void Circle::set_o(Point o) {
@@ -7,9 +7,9 @@
         void Circle::set_r(int r) {
             mr = r;
         }
-        Point Circle::get_o() {
+        Point Circle::get_o() const {
             return mo;
         }
-        int Circle::get_r() {
+        int Circle::get_r() const {
             return mr;
         }

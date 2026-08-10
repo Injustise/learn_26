@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-class Point {
+class Point { //µãµÄÉùÃ÷
     private:
         int mx, my;
     public: 
@@ -10,7 +10,7 @@ class Point {
 
         void set_y(int y); 
 
-        int get_x(); 
+        int get_x() const; 
 
-        int get_y();
+        int get_y() const;
 };

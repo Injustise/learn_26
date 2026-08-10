@@ -3,7 +3,7 @@
 using namespace std;
 #include "point.h"
 
-class Circle {
+class Circle { //Ô²µÄÉùÃ÷
     private: 
         Point mo;
         int mr;
@@ -12,7 +12,7 @@ class Circle {
 
         void set_r(int r);
 
-        Point get_o();
+        Point get_o() const;
 
-        int get_r(); 
+        int get_r() const; 
 };
