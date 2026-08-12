@@ -7,10 +7,10 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "-I", "${workspaceFolder}/header",   //添加头文件搜索路径
-                "${workspaceFolder}/source/*.cpp",   //明确指定源文件路径
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe"
+                "-I", "${workspaceFolder}/header", //添加头文件搜索路径
+                "${workspaceFolder}/source/*.cpp", //明确指定源文件路径
+                "-o", //明确指定输出文件路径
+                "${workspaceFolder}/build/${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
