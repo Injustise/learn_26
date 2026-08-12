@@ -1,6 +1,6 @@
 ### 一些笔记
 1. - `std::move` 是一种**类型转换：把左值强制转换为右值**。
-        ```
+        ``` c++
         class Person {
         std::string name;
         public:
@@ -8,14 +8,14 @@
         };
         ``` 
     - 传递左值时，
-        ```
+        ``` c++
         std::string s = "Alice";
         Person p(s);
         ```
         - 总开销：一次拷贝（s→n）+ 一次移动（n→name）。
         - 如果不用 `std::move`，而直接用 `name(n)`，那就是两次拷贝（s→n，n→name）
     - 传递右值时，
-        ```
+        ``` c++
         Person p(std::string("Alice")); //临时对象
         Person p("Alice"); //字符串字面量，临时构造
         ```
@@ -24,10 +24,10 @@
     - 注意：这里的 **`name(n)` 本质上是调用 `std::string` 类的拷贝构造函数**（因为 `n` 为左值），来初始化成员 `name`，同时标准库强制要求 std::string 的拷贝必须是深拷贝。
     - 所以这里 `std::move(n)` 把 `n` 由左值强制转化为右值，就是在**优化第二步的拷贝操作 `name(n)` 为转移操作**。
     - 转移操作：
-        ```
+        ``` c++
         name(std::move(n));   // 调用 std::string 的移动构造函数
         ```
-        ```
+        ``` 
         name 内部指针 → "Alice" ([prt]: 0x0011)
         n 内部指针 → (null or empty)
         //对比浅拷贝：name 内部指针 → "Alice" ([prt]: 0x0011) 
@@ -36,7 +36,7 @@
         //           n 内部指针 → "Alice" ([prt]: 0x0011)           
         ``` 
     - 对于基础数据类型（如 `int`）:
-        ```
+        ``` c++
         class Person {
         int age;
         public:

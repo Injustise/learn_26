@@ -7,7 +7,7 @@
 2. - `printf` 不能直接输出 `string` 类型
    - `printf` 的 `%s` 是为字符数组 `char[]` 或字符指针 `char*` 设计的。
    - 可以**调用 `.c_str()`** 将 `string` 转化为 `char[]`，这样就可以用 `printf` 进行输出了：    
-      ``` 
+      ``` c++
       string s = "Hello World"；
       printf("%s\n", s.c_str());
       ```  
