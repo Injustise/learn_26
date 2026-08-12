@@ -2,8 +2,6 @@
 #include <string>
 using namespace std;
 
-const double pi=3.14;
-
 class Person {
 private:
     string name; //ĞÕÃû
