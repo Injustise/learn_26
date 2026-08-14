@@ -9,6 +9,10 @@ private:
     int m_age;
 public:
     Person(string name, int age) : m_name(move(name)), m_age(age) {}
+    Person & operator+(int Add_age) { //重载 + （加号）运算符
+        m_age += Add_age;
+        return *this;
+    }
     Person & operator++() { //重载前置 ++ （递增）运算符
         m_age++;
         return *this; 
@@ -24,6 +28,13 @@ public:
 ostream & operator<<(ostream &cout, const Person &p) { //重载 << （左移）运算符，实现输出自定义类型
     cout << p.m_name << " 的年龄为 " << p.m_age;
     return cout; //返回 cout ，实现链式调用
+}
+
+void test() {
+    cout << "test:" << endl;
+    Person  p("John",18);
+    p = p + 4;
+    cout << p << endl;
 }
 
 void test01() {
@@ -43,6 +54,8 @@ void test02() {
 }
 
 int main() {
+
+    test();
 
     test01();
 
