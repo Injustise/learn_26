@@ -97,18 +97,18 @@ void test() {
     Memory *lmemory = new LenovoMemory;
 
     cout << "我的第一台电脑：" << endl;
-    Computer *mycomputer = new Computer(icpu, igpu, imemory); //接入具体厂商零件
+    Computer *mycomputer = new Computer(icpu, igpu, imemory); //接入 Intel 厂商零件
     mycomputer->work();
     cout << "before delete" << endl;
-    delete mycomputer;
+    delete mycomputer; //释放 mycomputer 堆区内存，触发重载析构函数
     cout << "after delete" << endl;
 
     cout << "------------------------" << endl;
     
     cout << "我的第二台电脑：" << endl;
-    mycomputer = new Computer(lcpu, lgpu, lmemory);
+    mycomputer = new Computer(lcpu, lgpu, lmemory); //接入 Lenovo 厂商零件
     mycomputer->work();
-    delete mycomputer;
+    delete mycomputer; //释放 mycomputer 堆区内存，触发重载析构函数
 }
 
 int main() {
