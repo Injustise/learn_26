@@ -10,7 +10,7 @@ int main() {
     myStaff.ShowMenu();
     
     int Select;
-    while(cin >> Select && Select != 0) {
+    while(cin >> Select) {
         switch(Select) {
             case 1: { //添加职工
                 myStaff.AddStaff();
@@ -28,7 +28,7 @@ int main() {
             }
 
             case 4: { //修改职工
-             //   myStaff.ModifyStaff();
+                myStaff.ModifyStaff();
                 break;
             }
 
@@ -47,18 +47,24 @@ int main() {
                     cout << "成功查找到该职工：" << endl;
                     myStaff.StaffArray[i]->showifo();
                 }
+
                 system("pause");
                 system("cls");
                 break;
             }
 
             case 6: { //按号排序
-            //    myStaff.SortStaff();
+                myStaff.SortStaff();
                 break;
             }
 
-            case 7: { //清空文档
+            case 7: { //清空列表
+                myStaff.ClearList();
+                break;
+            }
 
+            case 0: { //退出系统
+                myStaff.ExitSystem();
                 break;
             }
 
@@ -71,8 +77,6 @@ int main() {
         }
         myStaff.ShowMenu();
     }
-
-    cout << "成功退出职工管理系统，欢迎下次使用！" << endl;
 
     system("pause");
 
