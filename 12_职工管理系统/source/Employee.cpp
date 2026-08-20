@@ -1,7 +1,7 @@
 #include "Employee.h"
 
-Employee::Employee(int id, string name, int pos) {
-    m_id = id;
+Employee::Employee(string id, string name, int pos) {
+    m_id = move(id);
     m_name = move(name);
     m_position = pos; 
 }

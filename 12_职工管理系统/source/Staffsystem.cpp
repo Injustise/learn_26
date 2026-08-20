@@ -93,12 +93,11 @@ void Staffsystem::AddStaff() { //添加职工
     delete[] this->StaffArray;
     this->StaffArray = nullptr;
 
-    int id, pos;
-    string name;
+    int pos;
+    string id, name;
     Staff *worker = nullptr;
     for(int i = 0; i < addNum; i++) {
-        cout << "请输入第 " << i + 1 << " 位添加职工的编号：" << endl;
-        cin >> id;
+        id = generateTimeID();
 
         cout << "请输入第 " << i + 1 << " 位添加职工的姓名：" << endl;
         cin >> name;
@@ -147,8 +146,10 @@ int Staffsystem::FindStaff() { //查找职工
 
     if(confirm == 1) {
         cout << "请输入查找职工的编号：" << endl;
-        int id;
-        cin >> id;
+        string id;
+        while(cin >> id && id.size() != 9) {
+            cout << "输入有误，请重新输入！" << endl;
+        }
         for(int i = 0; i < this->m_num; i++) {
             if(this->StaffArray[i]->m_id == id) return i;
         }
@@ -217,16 +218,12 @@ void Staffsystem::ModifyStaff() { //修改职工
     if(i == -1) {
         cout << "查无此人，修改失败！" << endl;
     } else {
-        int pos;
-
-        cout << "请输入修改后职工的编号：" << endl;
-        cin >> this->StaffArray[i]->m_id;
-
         cout << "请输入修改后职工的姓名：" << endl;
         cin >> this->StaffArray[i]->m_name;
 
         cout << "请输入修改后职工的职位：" << endl;
         cout << "1：老板  2：经理  3：普通员工" << endl;
+        int pos;
         while(cin >> pos) {
             if(pos == 1 || pos == 2 || pos == 3) break;
             cout << "输入有误，请重新输入！" << endl; 
@@ -243,7 +240,10 @@ void Staffsystem::ModifyStaff() { //修改职工
 }
 
 void Staffsystem::SortStaff() { //按号排序
+    cout << "功能尚未完善！" << endl;
 
+    system("pause");
+    system("cls");
 }
 
 void Staffsystem::ClearList() { //清空列表
@@ -299,8 +299,8 @@ void Staffsystem::Save() { //写入文件
 int Staffsystem::GetListNum() { //读出文件
     ifstream ifs("D:\\code\\learn_7-31\\12_职工管理系统\\build\\Stafflist.txt", ios::in);
     
-    int id, pos;
-    string name;
+    int pos;
+    string id, name;
     int num = 0;
     while(ifs >> id && ifs >> name && ifs >> pos) num++;
 
@@ -312,8 +312,8 @@ int Staffsystem::GetListNum() { //读出文件
 void Staffsystem::Init() { //文件初始化
     ifstream ifs("D:\\code\\learn_7-31\\12_职工管理系统\\build\\Stafflist.txt", ios::in);
 
-    int id, pos;
-    string name;
+    int pos;
+    string id, name;
     Staff *worker = nullptr;
     int cnt = 0;
     while(ifs >> id && ifs >> name && ifs >> pos) {

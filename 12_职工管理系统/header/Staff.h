@@ -7,7 +7,7 @@ using namespace std;
 
 class Staff {
 public: 
-    int m_id;
+    string m_id;
     string m_name;
     int m_position;
 public:

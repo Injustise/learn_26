@@ -1,7 +1,7 @@
 #include "Manager.h"
 
-Manager::Manager(int id, string name, int pos) {
-    m_id = id;
+Manager::Manager(string id, string name, int pos) {
+    m_id = move(id);
     m_name = move(name);
     m_position = pos; 
 }

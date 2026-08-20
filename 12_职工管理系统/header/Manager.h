@@ -8,6 +8,6 @@ using namespace std;
 
 class Manager : public Staff {
 public:
-    Manager(int id, string name, int pos);
+    Manager(string id, string name, int pos);
     void showifo();
 };

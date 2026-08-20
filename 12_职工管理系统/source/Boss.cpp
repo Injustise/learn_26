@@ -1,7 +1,7 @@
 #include "Boss.h"
 
-Boss::Boss(int id, string name, int pos) {
-    m_id = id;
+Boss::Boss(string id, string name, int pos) {
+    m_id = move(id);
     m_name = move(name);
     m_position = pos; 
 }

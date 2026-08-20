@@ -6,6 +6,7 @@
 #include "Employee.h"
 #include "Manager.h"
 #include "Boss.h"
+#include "Idtime.h"
 #include <fstream>
 
 using namespace std;
