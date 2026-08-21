@@ -1,5 +1,5 @@
 ### 一些笔记
-1. `std::uniform_int_distribution` 是 C++11 标准库 `<random>` 中定义的一个模板类，**依靠随机数引擎来获取指定范围内的随机数**。
+1. `std::uniform_int_distribution` 是 C++11 标准库 `<random>` 中定义的一个类模板，**依靠随机数引擎来获取指定范围内的随机数**。
     - 用法：
     ``` c++
         std::mt19937 gen(seed); //1.创建引擎
