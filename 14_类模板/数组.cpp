@@ -40,7 +40,7 @@ public:
         }
         return *this;
     }
-    Type& operator [](int x) {
+    Type& operator [](int x) const {
         return this->m_Array[x];
     }
     void Push_Back(Type x) {
@@ -51,10 +51,10 @@ public:
         if(!m_Size) return;
         this->m_Size--;
     }
-    int getCapacity() {
+    int getCapacity() const {
         return this->m_Capacity;
     }
-    int getSize() {
+    int getSize() const { 
         return this->m_Size;
     }
 };
@@ -66,7 +66,7 @@ private:
 public:
     Person() {} //默认构造函数（无参 + 空实现）
     Person(std::string name, int age) : m_name(std::move(name)), m_age(age) {}
-    void showifo() {
+    void showifo() const {
         std::cout << "name: " << m_name 
                   << "\tage: " << m_age << std::endl;
     }
@@ -85,7 +85,7 @@ void test01() {
 
 }
 
-void PrintPersonArray(Array<Person> &arr) {
+void PrintPersonArray(const Array<Person> &arr) {
     for(int i = 0; i < arr.getSize(); i++) {
         arr[i].showifo();
     }
